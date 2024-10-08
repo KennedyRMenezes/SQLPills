@@ -1,3 +1,5 @@
+### Filtering
+
 ``` sql
 --- get all distinct status from orders
 SELECT DISTINCT orders_status FROM orders
