@@ -42,11 +42,12 @@ where os.order_date IS NOT NULL
 group by s.user_id, s.session_date;
 ```
 
-|content_text	                |modified_text|
----                             |---|
-|hello world! this is a TEST.	|Hello world! this is a test.|
-|what a great day	            |What a great day|
-|WELCOME to the event.	        |Welcome to the event.|
+|user_id	|session_date	|total_orders	|total_order_value
+|---|---|---|---|
+|1	|2024-01-01	|1	|152
+|2	|2024-01-02	|1	|485
+|3	|2024-01-05	|9	|2610
+|4	|2024-01-03	|4	|554
 
 -------------------------------------------------------------------------
 
