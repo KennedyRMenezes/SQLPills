@@ -11,22 +11,22 @@ Your output should include the user, the session date, the total number of order
 
 Tables: sessions, order_summary
 
-sessions
-session_date:
+sessions: 
+- session_date:
 date
-session_id:
+- session_id:
 bigint
-user_id:
+- user_id:
 bigint
 
-order_summary
-order_date:
+order_summary:
+- order_date:
 date
-order_id:
+- order_id:
 bigint
-order_value:
+- order_value:
 bigint
-user_id:
+- user_id:
 bigint
 
 # ANSWER:
