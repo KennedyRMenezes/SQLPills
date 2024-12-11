@@ -16,10 +16,11 @@ SELECT content_text,
 FROM user_content;
 ```
 
-content_text	                |modified_text
-hello world! this is a TEST.	|Hello world! this is a test.
-what a great day	            |What a great day
-WELCOME to the event.	        |Welcome to the event.
+|content_text	                |modified_text|
+---                             |---|
+|hello world! this is a TEST.	|Hello world! this is a test.|
+|what a great day	            |What a great day|
+|WELCOME to the event.	        |Welcome to the event.|
 
 -------------------------------------------------------------------------
 
