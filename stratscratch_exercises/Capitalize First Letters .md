@@ -15,6 +15,20 @@ SELECT content_text,
        INITCAP(content_text) AS modified_text
 FROM user_content;
 ```
+## OTHER OPTION:
+```sql
+SELECT 
+    content_id,
+    customer_id,
+    content_type,
+    content_text AS original_text,
+    CONCAT(
+        UPPER(SUBSTRING(content_text, 1, 1)), 
+        LOWER(SUBSTRING(content_text, 2))
+    ) AS modified_text
+FROM your_table;
+
+```
 
 |content_text	                |modified_text|
 ---                             |---|
