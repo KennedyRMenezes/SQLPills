@@ -42,7 +42,7 @@ where rank = 2
 
 |department	|second_highest_salary	|employee_id
 |---|---|---|
-|HR|	|90000	|7
+|HR	|90000	|7
 |Marketing	|110000	|1
 |Marketing	|110000	|5
 |Marketing	|110000	|12
