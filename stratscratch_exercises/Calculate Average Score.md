@@ -36,6 +36,7 @@ group by project_id;
 ```
 
 | project_id | team_member_id | score | date       |
+|---|---|---|---|
 |        101 |              1 |     5 | 2024-07-25 |
 |        101 |              2 |     8 | 2024-09-22 |
 |        101 |              2 |     3 | 2024-09-24 |
@@ -86,6 +87,7 @@ group by project_id;
 
 ##### result of subquery
 | project_id |
+|---|
 |        101 |
 |        102 |
 |        103 |
@@ -94,6 +96,7 @@ group by project_id;
 
 ##### final result
 | project_id | avg(score) |
+|---|---|
 |        101 |     5.3333 |
 |        102 |     3.0000 |
 |        103 |    56.8182 |
