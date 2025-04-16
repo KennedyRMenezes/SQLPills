@@ -69,34 +69,36 @@ mysql> select customer_id
 ### Exercise 3-4
 Fill in the blanks (denoted by <#>) for this multitable query to achieve the following
 results:
+```sql
 mysql> SELECT c.email, r.return_date
  -> FROM customer c
  -> INNER JOIN rental <1>
  -> ON c.customer_id = <2>
  -> WHERE date(r.rental_date) = '2005-06-14'
  -> ORDER BY <3> <4>;
-+---------------------------------------+---------------------+
-| email     | return_date |
-+---------------------------------------+---------------------+
-| DANIEL.CABRAL@sakilacustomer.org  | 2005-06-23 22:00:38 |
-| TERRANCE.ROUSH@sakilacustomer.org  | 2005-06-23 21:53:46 |
-| MIRIAM.MCKINNEY@sakilacustomer.org  | 2005-06-21 17:12:08 |
-| GWENDOLYN.MAY@sakilacustomer.org  | 2005-06-20 02:40:27 |
-| JEANETTE.GREENE@sakilacustomer.org  | 2005-06-19 23:26:46 |
-| HERMAN.DEVORE@sakilacustomer.org  | 2005-06-19 03:20:09 |
-| JEFFERY.PINSON@sakilacustomer.org  | 2005-06-18 21:37:33 |
-| MATTHEW.MAHAN@sakilacustomer.org  | 2005-06-18 05:18:58 |
-| MINNIE.ROMERO@sakilacustomer.org  | 2005-06-18 01:58:34 |
-| SONIA.GREGORY@sakilacustomer.org  | 2005-06-17 21:44:11 |
-| TERRENCE.GUNDERSON@sakilacustomer.org | 2005-06-17 05:28:35 |
-| ELMER.NOE@sakilacustomer.org   | 2005-06-17 02:11:13 |
-| JOYCE.EDWARDS@sakilacustomer.org  | 2005-06-16 21:00:26 |
-| AMBER.DIXON@sakilacustomer.org  | 2005-06-16 04:02:56 |
-| CHARLES.KOWALSKI@sakilacustomer.org  | 2005-06-16 02:26:34 |
-| CATHERINE.CAMPBELL@sakilacustomer.org | 2005-06-15 20:43:03 |
-+---------------------------------------+---------------------+
++-----------------------------------------+---------------------+
+| email                                   | return_date         |
++-----------------------------------------+---------------------+
+| DANIEL.CABRAL@sakilacustomer.org        | 2005-06-23 22:00:38 |
+| TERRANCE.ROUSH@sakilacustomer.org       | 2005-06-23 21:53:46 |
+| MIRIAM.MCKINNEY@sakilacustomer.org      | 2005-06-21 17:12:08 |
+| GWENDOLYN.MAY@sakilacustomer.org        | 2005-06-20 02:40:27 |
+| JEANETTE.GREENE@sakilacustomer.org      | 2005-06-19 23:26:46 |
+| HERMAN.DEVORE@sakilacustomer.org        | 2005-06-19 03:20:09 |
+| JEFFERY.PINSON@sakilacustomer.org       | 2005-06-18 21:37:33 |
+| MATTHEW.MAHAN@sakilacustomer.org        | 2005-06-18 05:18:58 |
+| MINNIE.ROMERO@sakilacustomer.org        | 2005-06-18 01:58:34 |
+| SONIA.GREGORY@sakilacustomer.org        | 2005-06-17 21:44:11 |
+| TERRENCE.GUNDERSON@sakilacustomer.org   | 2005-06-17 05:28:35 |
+| ELMER.NOE@sakilacustomer.org            | 2005-06-17 02:11:13 |
+| JOYCE.EDWARDS@sakilacustomer.org        | 2005-06-16 21:00:26 |
+| AMBER.DIXON@sakilacustomer.org          | 2005-06-16 04:02:56 |
+| CHARLES.KOWALSKI@sakilacustomer.org     | 2005-06-16 02:26:34 |
+| CATHERINE.CAMPBELL@sakilacustomer.org   | 2005-06-15 20:43:03 |
++-----------------------------------------+---------------------+
 16 rows in set (0.03 sec)
-    
+````    
+
 #### ANSWER:
 ```sql      
 SELECT c.email, r.return_date
@@ -114,28 +116,28 @@ two exercises:
 +------------+-------------+--------+--------------------+
 | payment_id | customer_id | amount | date(payment_date) |
 +------------+-------------+--------+--------------------+
-| 101 | 4 | 8.99 | 2005-08-18 |
-| 102 | 4 | 1.99 | 2005-08-19 |
-| 103 | 4 | 2.99 | 2005-08-20 |
-| 104 | 4 | 6.99 | 2005-08-20 |
-| 105 | 4 | 4.99 | 2005-08-21 |
-| 106 | 4 | 2.99 | 2005-08-22 |
-| 107 | 4 | 1.99 | 2005-08-23 |
-| 108 | 5 | 0.99 | 2005-05-29 |
-| 109 | 5 | 6.99 | 2005-05-31 |
-| 110 | 5 | 1.99 | 2005-05-31 |
-| 111 | 5 | 3.99 | 2005-06-15 |
-| 112 | 5 | 2.99 | 2005-06-16 |
-| 113 | 5 | 4.99 | 2005-06-17 |
-| 114 | 5 | 2.99 | 2005-06-19 |
-| 115 | 5 | 4.99 | 2005-06-20 |
-| 116 | 5 | 4.99 | 2005-07-06 |
-| 117 | 5 | 2.99 | 2005-07-08 |
-| 118 | 5 | 4.99 | 2005-07-09 |
-| 119 | 5 | 5.99 | 2005-07-09 |
-| 120 | 5 | 1.99 | 2005-07-09 |
+| 101        | 4           | 8.99   | 2005-08-18         |
+| 102        | 4           | 1.99   | 2005-08-19         |
+| 103        | 4           | 2.99   | 2005-08-20         |
+| 104        | 4           | 6.99   | 2005-08-20         |
+| 105        | 4           | 4.99   | 2005-08-21         |
+| 106        | 4           | 2.99   | 2005-08-22         |
+| 107        | 4           | 1.99   | 2005-08-23         |
+| 108        | 5           | 0.99   | 2005-05-29         |
+| 109        | 5           | 6.99   | 2005-05-31         |
+| 110        | 5           | 1.99   | 2005-05-31         |
+| 111        | 5           | 3.99   | 2005-06-15         |
+| 112        | 5           | 2.99   | 2005-06-16         |
+| 113        | 5           | 4.99   | 2005-06-17         |
+| 114        | 5           | 2.99   | 2005-06-19         |
+| 115        | 5           | 4.99   | 2005-06-20         |
+| 116        | 5           | 4.99   | 2005-07-06         |
+| 117        | 5           | 2.99   | 2005-07-08         |
+| 118        | 5           | 4.99   | 2005-07-09         |
+| 119        | 5           | 5.99   | 2005-07-09         |
+| 120        | 5           | 1.99   | 2005-07-09         |
 +------------+-------------+--------+--------------------+
-
+```
 
 ### Exercise 4-1
 Which of the payment IDs would be returned by the following filter conditions?
