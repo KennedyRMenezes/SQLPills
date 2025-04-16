@@ -97,7 +97,7 @@ mysql> SELECT c.email, r.return_date
 | CATHERINE.CAMPBELL@sakilacustomer.org   | 2005-06-15 20:43:03 |
 +-----------------------------------------+---------------------+
 16 rows in set (0.03 sec)
-````    
+```    
 
 #### ANSWER:
 ```sql      
@@ -109,10 +109,9 @@ WHERE date(r.rental_date) = '2005-06-14'
 ORDER BY return_date desc;
 ```
 
----
-
 You’ll need to refer to the following subset of rows from the payment table for the first
 two exercises:
+```sql
 +------------+-------------+--------+--------------------+
 | payment_id | customer_id | amount | date(payment_date) |
 +------------+-------------+--------+--------------------+
