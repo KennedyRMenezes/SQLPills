@@ -276,3 +276,30 @@ from actor as a
 where a.last_name LIKE 'L%'
 order by last_name;
 ```
+
+---
+
+### Exercise 7-1
+Write a query that returns the 17th through 25th characters of the string 'Please
+find the substring in this string'.
+
+### Exercise 7-2
+Write a query that returns the absolute value and sign (−1, 0, or 1) of the number
+−25.76823. Also return the number rounded to the nearest hundredth.
+
+### Exercise 7-3
+Write a query to return just the month portion of the current date.
+
+
+---
+
+### Exercise 8-1
+Construct a query that counts the number of rows in the payment table.
+
+### Exercise 8-2
+Modify your query from Exercise 8-1 to count the number of payments made by each
+customer. Show the customer ID and the total amount paid for each customer.
+
+### Exercise 8-3
+Modify your query from Exercise 8-2 to include only those customers who have
+made at least 40 payments.
