@@ -354,12 +354,32 @@ lated subquery against the category table to find all action films (category.nam
 'Action').
 
 #### ANSWER:
+```sql
+select title
+from film
+where film_id in (select film_id
+                  from film_category as fc
+                  inner join category as c
+                    using (category_id)
+                  where c.name = 'Action');
+```
 
 ### Exercise 9-2
 Rework the query from Exercise 9-1 using a correlated subquery against the category
 and film_category tables to achieve the same results.
 
 #### ANSWER:
+```sql
+SELECT f.title
+FROM film f
+WHERE EXISTS(
+    SELECT 1
+    FROM film_category as fc INNER JOIN category as c
+        USING(category_id)
+    WHERE c.name = 'Action'
+        AND fc.film_id = f.film_id);
+```
+
 
 ### Exercise 9-3
 Join the following query to a subquery against the film_actor table to show the level
