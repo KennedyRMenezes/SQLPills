@@ -301,8 +301,9 @@ SELECT -25.76823, SIGN(-25.76823), ABS(-25.76823);
 Write a query to return just the month portion of the current date.
 
 #### ANSWER:
+```sql
 SELECT month(current_date());
-
+```
 
 ---
 
@@ -310,18 +311,40 @@ SELECT month(current_date());
 Construct a query that counts the number of rows in the payment table.
 
 #### ANSWER:
+```sql
+mysql> SELECT count(*)
+    -> FROM payment;
++----------+
+| count(*) |
++----------+
+|    16044 |
++----------+
+1 row in set (0.30 sec)
+```
+
 
 ### Exercise 8-2
 Modify your query from Exercise 8-1 to count the number of payments made by each
 customer. Show the customer ID and the total amount paid for each customer.
 
 #### ANSWER:
+```sql
+SELECT customer_id, count(*), sum(amount)
+FROM payment
+GROUP BY customer_id;
+```
 
 ### Exercise 8-3
 Modify your query from Exercise 8-2 to include only those customers who have
 made at least 40 payments.
 
 #### ANSWER:
+```sql
+SELECT customer_id, count(*), sum(amount)
+FROM payment
+GROUP BY customer_id
+HAVING count(*) >= 40;
+```
 
 ---
 
