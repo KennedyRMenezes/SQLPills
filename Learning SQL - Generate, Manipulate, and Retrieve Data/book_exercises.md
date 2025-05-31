@@ -283,12 +283,18 @@ order by last_name;
 Write a query that returns the 17th through 25th characters of the string 'Please
 find the substring in this string'.
 
+#### ANSWER:
+
 ### Exercise 7-2
 Write a query that returns the absolute value and sign (−1, 0, or 1) of the number
 −25.76823. Also return the number rounded to the nearest hundredth.
 
+#### ANSWER:
+
 ### Exercise 7-3
 Write a query to return just the month portion of the current date.
+
+#### ANSWER:
 
 
 ---
@@ -296,10 +302,127 @@ Write a query to return just the month portion of the current date.
 ### Exercise 8-1
 Construct a query that counts the number of rows in the payment table.
 
+#### ANSWER:
+
 ### Exercise 8-2
 Modify your query from Exercise 8-1 to count the number of payments made by each
 customer. Show the customer ID and the total amount paid for each customer.
 
+#### ANSWER:
+
 ### Exercise 8-3
 Modify your query from Exercise 8-2 to include only those customers who have
 made at least 40 payments.
+
+#### ANSWER:
+
+---
+
+### Exercise 9-1
+Construct a query against the film table that uses a filter condition with a noncorre‐
+lated subquery against the category table to find all action films (category.name =
+'Action').
+
+#### ANSWER:
+
+### Exercise 9-2
+Rework the query from Exercise 9-1 using a correlated subquery against the category
+and film_category tables to achieve the same results.
+
+#### ANSWER:
+
+### Exercise 9-3
+Join the following query to a subquery against the film_actor table to show the level
+of each actor:
+
+```sql
+SELECT 'Hollywood Star' level, 30 min_roles, 99999 max_roles
+UNION ALL
+SELECT 'Prolific Actor' level, 20 min_roles, 29 max_roles
+UNION ALL
+SELECT 'Newcomer' level, 1 min_roles, 19 max_roles
+```
+The subquery against the film_actor table should count the number of rows for each
+actor using group by actor_id, and the count should be compared to the
+min_roles/max_roles columns to determine which level each actor belongs to.
+
+#### ANSWER:
+
+---
+
+### Exercise 10-1
+Using the following table definitions and data, write a query that returns each cus‐
+tomer name along with their total payments:
+ Customer:
+Customer_id Name
+----------- ---------------
+1 John Smith
+2 Kathy Jones
+3 Greg Oliver
+ Payment:
+Payment_id Customer_id Amount
+---------- ----------- --------
+101 1 8.99
+102 3 4.99
+103 1 7.99
+Include all customers, even if no payment records exist for that customer.
+
+#### ANSWER:
+
+### Exercise 10-2
+Reformulate your query from Exercise 10-1 to use the other outer join type (e.g., if
+you used a left outer join in Exercise 10-1, use a right outer join this time) such that
+the results are identical to Exercise 10-1.
+
+#### ANSWER:
+
+### Exercise 10-3 (Extra Credit)
+Devise a query that will generate the set {1, 2, 3, ..., 99, 100}. (Hint: use a cross join
+with at least two from clause subqueries.)
+
+#### ANSWER:
+
+---
+
+### Exercise 11-1
+Rewrite the following query, which uses a simple case expression, so that the same
+results are achieved using a searched case expression. Try to use as few when clauses
+as possible.
+```sql
+SELECT name,
+ CASE name
+ WHEN 'English' THEN 'latin1'
+ WHEN 'Italian' THEN 'latin1'
+ WHEN 'French' THEN 'latin1'
+ WHEN 'German' THEN 'latin1'
+ WHEN 'Japanese' THEN 'utf8'
+ WHEN 'Mandarin' THEN 'utf8'
+ ELSE 'Unknown'
+ END character_set
+FROM language;
+```
+
+#### ANSWER:
+
+### Exercise 11-2
+Rewrite the following query so that the result set contains a single row with five col‐
+umns (one for each rating). Name the five columns G, PG, PG_13, R, and NC_17.
+
+```sql
+mysql> SELECT rating, count(*)
+ -> FROM film
+ -> GROUP BY rating;
++--------+----------+
+| rating | count(*) |
++--------+----------+
+| PG | 194 |
+| G | 178 |
+| NC-17 | 210 |
+| PG-13 | 223 |
+| R | 195 |
++--------+----------+
+5 rows in set (0.00 sec)
+```
+
+#### ANSWER:
+
