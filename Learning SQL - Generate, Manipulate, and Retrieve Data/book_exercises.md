@@ -476,3 +476,49 @@ mysql> SELECT rating, count(*)
 
 #### ANSWER:
 
+---
+
+### Exercise 14-1
+Create a view definition that can be used by the following query to generate the given
+results:
+
+```sql
+SELECT title, category_name, first_name, last_name
+FROM film_ctgry_actor
+WHERE last_name = 'FAWCETT';
+
++---------------------+---------------+------------+-----------+
+| title | category_name | first_name | last_name |
++---------------------+---------------+------------+-----------+
+| ACE GOLDFINGER | Horror | BOB | FAWCETT |
+| ADAPTATION HOLES | Documentary | BOB | FAWCETT |
+| CHINATOWN GLADIATOR | New | BOB | FAWCETT |
+| CIRCUS YOUTH | Children | BOB | FAWCETT |
+| CONTROL ANTHEM | Comedy | BOB | FAWCETT |
+| DARES PLUTO | Animation | BOB | FAWCETT |
+| DARN FORRESTER | Action | BOB | FAWCETT |
+| DAZED PUNK | Games | BOB | FAWCETT |
+| DYNAMITE TARZAN | Classics | BOB | FAWCETT |
+| HATE HANDICAP | Comedy | BOB | FAWCETT |
+| HOMICIDE PEACH | Family | BOB | FAWCETT |
+| JACKET FRISCO | Drama | BOB | FAWCETT |
+| JUMANJI BLADE | New | BOB | FAWCETT |
+| LAWLESS VISION | Animation | BOB | FAWCETT |
+| LEATHERNECKS DWARFS | Travel | BOB | FAWCETT |
+```
+
+#### ANSWER:
+
+---
+
+### Exercise 14-2
+
+The film rental company manager would like to have a report that includes the name
+of every country, along with the total payments for all customers who live in each
+country. Generate a view definition that queries the country table and uses a scalar
+subquery to calculate a value for a column named tot_payments.
+
+#### ANSWER:
+
+
+
