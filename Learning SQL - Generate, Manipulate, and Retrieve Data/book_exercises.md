@@ -465,11 +465,11 @@ mysql> SELECT rating, count(*)
 +--------+----------+
 | rating | count(*) |
 +--------+----------+
-| PG | 194 |
-| G | 178 |
-| NC-17 | 210 |
-| PG-13 | 223 |
-| R | 195 |
+| PG     | 194      |
+| G      | 178      |
+| NC-17  | 210      |
+| PG-13  | 223      |
+| R      | 195      |
 +--------+----------+
 5 rows in set (0.00 sec)
 ```
@@ -488,23 +488,23 @@ FROM film_ctgry_actor
 WHERE last_name = 'FAWCETT';
 
 +---------------------+---------------+------------+-----------+
-| title | category_name | first_name | last_name |
+| title               | category_name | first_name | last_name |
 +---------------------+---------------+------------+-----------+
-| ACE GOLDFINGER | Horror | BOB | FAWCETT |
-| ADAPTATION HOLES | Documentary | BOB | FAWCETT |
-| CHINATOWN GLADIATOR | New | BOB | FAWCETT |
-| CIRCUS YOUTH | Children | BOB | FAWCETT |
-| CONTROL ANTHEM | Comedy | BOB | FAWCETT |
-| DARES PLUTO | Animation | BOB | FAWCETT |
-| DARN FORRESTER | Action | BOB | FAWCETT |
-| DAZED PUNK | Games | BOB | FAWCETT |
-| DYNAMITE TARZAN | Classics | BOB | FAWCETT |
-| HATE HANDICAP | Comedy | BOB | FAWCETT |
-| HOMICIDE PEACH | Family | BOB | FAWCETT |
-| JACKET FRISCO | Drama | BOB | FAWCETT |
-| JUMANJI BLADE | New | BOB | FAWCETT |
-| LAWLESS VISION | Animation | BOB | FAWCETT |
-| LEATHERNECKS DWARFS | Travel | BOB | FAWCETT |
+| ACE GOLDFINGER      | Horror        | BOB        | FAWCETT   |
+| ADAPTATION HOLES    | Documentary   | BOB        | FAWCETT   |
+| CHINATOWN GLADIATOR | New           | BOB        | FAWCETT   |
+| CIRCUS YOUTH        | Children      | BOB        | FAWCETT   |
+| CONTROL ANTHEM      | Comedy        | BOB        | FAWCETT   |
+| DARES PLUTO         | Animation     | BOB        | FAWCETT   |
+| DARN FORRESTER      | Action        | BOB        | FAWCETT   |
+| DAZED PUNK          | Games         | BOB        | FAWCETT   |
+| DYNAMITE TARZAN     | Classics      | BOB        | FAWCETT   |
+| HATE HANDICAP       | Comedy        | BOB        | FAWCETT   |
+| HOMICIDE PEACH      | Family        | BOB        | FAWCETT   |
+| JACKET FRISCO       | Drama         | BOB        | FAWCETT   |
+| JUMANJI BLADE       | New           | BOB        | FAWCETT   |
+| LAWLESS VISION      | Animation     | BOB        | FAWCETT   |
+| LEATHERNECKS DWARFS | Travel        | BOB        | FAWCETT   |
 ```
 
 #### ANSWER:
