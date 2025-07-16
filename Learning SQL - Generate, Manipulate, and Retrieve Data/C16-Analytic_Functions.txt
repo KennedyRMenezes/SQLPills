@@ -1,0 +1,119 @@
+select quarter(payment_date) quarter,
+monthname(payment_date) month_nm,
+sum(amount) monthly_sales,
+rank() over (order by sum(amount) desc) sales_rank
+from payment
+where year(payment_date) = 2005
+group by quarter(payment_date), monthname(payment_date), month(payment_date)
+order by 1, month(payment_date);
+
+select quarter(payment_date) quarter,
+monthname(payment_date) month_nm,
+sum(amount) monthly_sales,
+rank() over (partition by quarter(payment_date) order by sum(amount) desc) sales_rank
+from payment
+where year(payment_date) = 2005
+group by quarter(payment_date), monthname(payment_date), month(payment_date)
+order by 1, month(payment_date);
+
+select customer_id, count(*) num_rentals,
+	row_number() over(order by count(*) desc) row_number_rnk,
+	rank() over (order by count(*) desc) rank_rnk,
+	dense_rank() over (order by count(*) desc) dense_rank_rnk
+from rental
+group by customer_id
+order by 2 desc;
+
+
+select customer_id,
+	monthname(rental_date) rental_month,
+	count(*) num_rentals
+from rental
+group by customer_id, monthname(rental_date)
+order by 2, 3 desc
+limit 200;
+
+
+select customer_id,
+	monthname(rental_date) rental_month,
+	count(*) num_rentals,
+	rank() over (partition by monthname(rental_date) order by count(*) desc) rank_rnk
+from rental
+group by customer_id, monthname(rental_date)
+order by 2, 3 desc
+limit 200;
+
+select customer_id,
+	monthname(rental_date) rental_month,
+	count(*) num_rentals,
+	dense_rank() over (partition by monthname(rental_date) order by count(*) desc) rank_rnk
+from rental
+group by customer_id, monthname(rental_date)
+order by 2, 3 desc
+limit 200;
+
+
+select monthname(payment_date) payment_month,
+	amount,
+	sum(amount) over (partition by monthname(payment_date)) monthly_total,
+	sum(amount) over () grand_total
+from payment
+where amount >= 10
+order by 1;
+
+
+select monthname(payment_date) payment_month,
+	sum(amount) month_total,
+	round(sum(amount) / sum(sum(amount)) over () * 100, 2) pct_of_total
+from payment
+group by monthname(payment_date);
+
+
+select monthname(payment_date) payment_month,
+	sum(amount) month_total,
+	case sum(amount)
+		when max(sum(amount)) over () THEN 'Highest'
+		when min(sum(amount)) over () THEN 'Lowest'
+		else 'Middle'
+	end descriptor
+from payment
+group by monthname(payment_date);
+
+
+
+select yearweek(payment_date) payment_week,
+	sum(amount) week_total,
+	sum(sum(amount)) over (order by yearweek(payment_date) rows unbounded preceding) rolling_sum
+from payment
+group by yearweek(payment_date)
+order by 1;
+
+
+
+select yearweek(payment_date) payment_week,
+	sum(amount) week_total,
+	avg(sum(amount)) over (order by yearweek(payment_date) rows between 1 preceding and 1 following) rooling_3wk_avg
+from payment
+group by yearweek(payment_date)
+order by 1;
+
+
+
+select date(payment_date), sum(amount),
+	avg(sum(amount)) over (order by date(payment_date)
+		range between interval 3 day preceding
+			and interval 3 day following) 7_day_avg
+from payment
+where payment_date between '2005-07-01' and '2005-09-01'
+group by date(payment_date)
+order by 1;
+
+
+
+select yearweek(payment_date) payment_week,
+	sum(amount) week_total,
+	lag(sum(amount), 1) over (order by yearweek(payment_date)) prev_wk_tot,
+	lead(sum(amount), 1) over (order by yearweek(payment_date)) next_wk_tot
+from payment
+group by yearweek(payment_date)
+order by 1;
